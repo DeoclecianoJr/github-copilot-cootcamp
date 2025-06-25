@@ -98,7 +98,7 @@ def signup_for_activity(activity_name: str, email: str):
     if activity_name not in activities:
         raise HTTPException(status_code=404, detail="Activity not found")
 
-    #validar se o aluno já existe na atividade
+    # Validar se o aluno já está inscrito
     if email in activities[activity_name]["participants"]:
         raise HTTPException(status_code=400, detail="Student already signed up for this activity")
     activity = activities[activity_name]
